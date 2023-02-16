@@ -1,8 +1,6 @@
-/* TODO: Make the code a little cleaner; I don't think you had to type all that out */
+/* TODO: If you type something random it still registers as 'you lose! paper beats rock!' */
 
-/* TODO: Add point counter and 5 rounds */
-
-/* TODO: Make a start again button */
+/* TODO: Let it declare who actually won */
 
 var playerScore = 0
 var computerScore = 0
@@ -17,9 +15,9 @@ var winner = Math.max(computerScore, playerScore)
 
 function getComputerChoice() {
 
-    var rock = "ROCK!"
-    var paper = "PAPER!"
-    var scissors = "SCISSORS!"
+    const rock = "ROCK!"
+    const paper = "PAPER!"
+    const scissors = "SCISSORS!"
     var answer =''
 
     var computer= Math.floor(Math.random()*3);
@@ -38,12 +36,9 @@ function getComputerChoice() {
 
 }
 
-
 function userAnswer(){
 
     var userResponse = prompt('Enter "Rock", "Paper", or "Scissors"');
-
-
 
     if (userResponse.toLowerCase() == "rock"){
         userResponse= "ROCK!"
@@ -51,12 +46,11 @@ function userAnswer(){
         userResponse = "SCISSORS!"
     } else if (userResponse.toLowerCase() == "paper"){
         userResponse = "PAPER!"
-    }
+    } 
 
     console.log(`Player chooses; ${userResponse}`)
     return playerPick = userResponse;    
 }
-
 
 
 function playRound(playerPick,computerPick){
@@ -90,18 +84,28 @@ function playRound(playerPick,computerPick){
 
 
 function playGame() {
-    for (i = 0; i < 5; i++) {
-        getComputerChoice();
+ 
+    for (i = 1; i < 20; i++) {
+        console.log(`Round: ${i}`)
         userAnswer();
+        getComputerChoice();
         playRound(playerPick, computerPick);
-        console.log(i)
+        if (result.substring(0,9) == "You lose!"){
+            computerScore += 1;
+        } else if (result.substring(0,8)== "You win!"){
+            playerScore += 1;
+        }
+        console.log(`Computer Score: ${computerScore} Player Score: ${playerScore}
+        
+        `);
 
-    }
+        if ((playerScore || computerScore) == 5){
+            console.log(`GAME OVER`)
+            break
+        }   
+    }  
 
 }
-
-
-
 
 playGame();
 
