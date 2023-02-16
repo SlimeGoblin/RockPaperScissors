@@ -1,4 +1,4 @@
-/* DONE */
+/* DONE! */
 
 var playerScore = 0
 var computerScore = 0
