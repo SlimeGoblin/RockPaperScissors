@@ -1,13 +1,18 @@
-
-
-/* Function to make computer choose rock paper or scissors */
-
 /* TODO: Make the code a little cleaner; I don't think you had to type all that out */
 
 /* TODO: Add point counter and 5 rounds */
 
 /* TODO: Make a start again button */
 
+var playerScore = 0
+var computerScore = 0
+var round = 0
+
+var computerPick = ''
+var playerPick = ''
+var result = ''
+
+var winner = Math.max(computerScore, playerScore)
 
 
 function getComputerChoice() {
@@ -28,7 +33,8 @@ function getComputerChoice() {
         answer = scissors;
     }
     
-    return answer;
+    console.log(`Computer chooses; ${answer}`);
+    return computerPick = answer
 
 }
 
@@ -41,46 +47,69 @@ function userAnswer(){
 
     if (userResponse.toLowerCase() == "rock"){
         userResponse= "ROCK!"
-        return userResponse;
     } else if (userResponse.toLowerCase() == "scissors") {
         userResponse = "SCISSORS!"
-        return userResponse;
     } else if (userResponse.toLowerCase() == "paper"){
         userResponse = "PAPER!"
-        return userResponse;
-    }
-    
-}
-
-function playRound(playerSelection,computerSelection){
-
-
-    if (playerSelection == "ROCK!" && computerSelection == "PAPER!"){
-        return "You lose! Paper beats rock!";
-    } else if (playerSelection== "ROCK!" && computerSelection == "SCISSORS!"){
-        return "You win! Rock beats scissors!";
-    } else if (playerSelection == "ROCK!" && computerSelection == "ROCK!") {
-        return "Tie! Rock ties with rock!";
     }
 
-    if (playerSelection == "PAPER!" && computerSelection == "PAPER!"){
-        return "Tie! Paper ties paper!";
-    } else if (playerSelection== "PAPER!" && computerSelection == "SCISSORS!"){
-        return "You Win! Paper beats scissors!";
-    } else if (playerSelection == "PAPER!" && computerSelection == "ROCK!") {
-        return "You Lose! Paper loses to rock!";
-    }
-
-    if (playerSelection == "SCISSORS!" && computerSelection == "PAPER!"){
-        return "You Win! Scissors beats paper!";
-    } else if (playerSelection== "SCISSORS!" && computerSelection == "SCISSORS!"){
-        return "Tie! Scissors ties scissors";
-    } else if (playerSelection == "SCISSORS!" && computerSelection == "ROCK!"){
-        return "You Lose! Scissors loses to rock!";
-    }
-
+    console.log(`Player chooses; ${userResponse}`)
+    return playerPick = userResponse;    
 }
 
 
-console.log(playRound(userAnswer(),getComputerChoice()));
+
+function playRound(playerPick,computerPick){
+
+    if (playerPick == "ROCK!" && computerPick == "PAPER!"){
+        result = "You lose! Paper beats rock!";
+    } else if (playerPick== "ROCK!" && computerPick == "SCISSORS!"){
+        result = "You win! Rock beats scissors!";
+    } else if (playerPick == "ROCK!" && computerPick == "ROCK!") {
+        result ="Tie! Rock ties with rock!";
+    }
+
+    if (playerPick == "PAPER!" && computerPick == "PAPER!"){
+        result = "Tie! Paper ties paper!";
+    } else if (playerPick== "PAPER!" && computerPick == "SCISSORS!"){
+        result = "You Win! Paper beats scissors!";
+    } else if (playerPick == "PAPER!" && computerPick == "ROCK!") {
+        result = "You Lose! Paper loses to rock!";
+    }
+
+    if (playerPick == "SCISSORS!" && computerPick == "PAPER!"){
+        result = "You Win! Scissors beats paper!";
+    } else if (playerPick== "SCISSORS!" && computerPick == "SCISSORS!"){
+        result = "Tie! Scissors ties scissors";
+    } else if (playerPick == "SCISSORS!" && computerPick == "ROCK!"){
+        result = "You Lose! Scissors loses to rock!";
+    }
+
+    console.log(result);
+}
+
+
+function playGame() {
+    for (i = 0; i < 5; i++) {
+        getComputerChoice();
+        userAnswer();
+        playRound(playerPick, computerPick);
+        console.log(i)
+
+    }
+
+}
+
+
+
+
+playGame();
+
+
+
+
+
+
+
+
 
