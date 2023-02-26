@@ -203,7 +203,7 @@ function playRound(playerPick,computerPick){
     displayResult.classList.add('theResult')
     displayResult.textContent = `${result}`
 
-    console.log(result.substring(4,8))
+  
 
     /* Toggle Color based on win/lose */
 
@@ -221,6 +221,13 @@ function playRound(playerPick,computerPick){
     const displayWinner = document.createElement('div')
     displayWinner.classList.add('checkWinner')
     displayWinner.textContent = (`${winner}`)
+
+    if (playerScore == 5){
+        displayWinner.classList.toggle('win')
+    } else if (computerScore == 5){
+        displayWinner.classList.toggle('lose')
+    }
+
     resultContainer.appendChild(displayWinner)
 
  
@@ -232,7 +239,7 @@ function playRound(playerPick,computerPick){
     if (winner.substring(0,4)== 'GAME'){
 
         const restartButton = document.createElement('button')
-        restartButton.classList.add = ("restart")
+        restartButton.classList.add = ('restart')
         restartButton.textContent=(`RESTART`)
         const refreshPage = () => {
             location.reload();
