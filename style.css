@@ -3,4 +3,72 @@
 body {
     background-color: black;
     color: white;
+
+    text-align: center;
+
 }
+
+.heroContainer{
+    font-size: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.heroContainer .round{
+    font-size: 45px;
+}
+
+.buttonContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 25px;
+
+}
+
+#rock, #paper, #scissors{
+    font-size: 40px;
+    border-radius: 10px;
+}
+
+.playerScore{
+    color: green;
+}
+
+.computerScore{
+    color: red;
+}
+
+#scoreContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 30px;
+    padding: 25px;
+}
+
+.theResult{
+    font-size: 45px;
+}
+
+.showPick{
+    font-size: 20px;
+    padding: 25px;
+}
+
+.win{
+    color: green;
+}
+
+.lose{
+    color: red;
+}
+
+
+
+

@@ -179,11 +179,7 @@ function playRound(playerPick,computerPick){
     displayComputerScore.textContent = `Computer Score: ${computerScore}`
     scoreContain.appendChild(displayComputerScore)
 
-    /* DOM Manip; Show Each Pick */
-
-    const showPick = document.createElement('div')
-    showPick.textContent = `Player Picks: ${playerPick} Computer Picks: ${computerPick}`
-    scoreContain.appendChild(showPick)
+    
 
 
     /* DOM Manip; Show Result */
@@ -194,15 +190,40 @@ function playRound(playerPick,computerPick){
         resultContainer.removeChild(resultContainer.firstChild);
     }
 
+       /* DOM Manip; Show Each Pick */
+
+    const showPick = document.createElement('div')
+    showPick.classList.add(`showPick`)
+    showPick.textContent = `Player Picks: ${playerPick} Computer Picks: ${computerPick}`
+    resultContainer.appendChild(showPick)
+
+    /* Continue Show Result */
+
     const displayResult = document.createElement('div')
     displayResult.classList.add('theResult')
     displayResult.textContent = `${result}`
+
+    console.log(result.substring(4,8))
+
+    /* Toggle Color based on win/lose */
+
+    if(result.substring(4,8)== `win!`){
+        displayResult.classList.toggle(`win`)
+    }
+
+    else if(result.substring(4,8) ==`lose`){
+        displayResult.classList.toggle(`lose`)
+    }
+
+
     resultContainer.appendChild(displayResult)
 
     const displayWinner = document.createElement('div')
     displayWinner.classList.add('checkWinner')
     displayWinner.textContent = (`${winner}`)
     resultContainer.appendChild(displayWinner)
+
+ 
 
 
     
