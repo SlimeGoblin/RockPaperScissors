@@ -13,6 +13,8 @@ body {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+
+    font-family: l'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, Times, serif
 }
 
 .heroContainer .round{
@@ -27,12 +29,46 @@ body {
     gap: 20px;
     padding: 25px;
 
+
 }
 
 #rock, #paper, #scissors{
+    box-sizing: border-box;
+
     font-size: 40px;
-    border-radius: 10px;
+    border-radius: 10px;  
+    
+    background-color:black;
+
+    border: 5px solid white; 
+
+
 }
+
+
+
+
+img {
+    height: 100px;
+
+   
+
+}
+
+#scissors:hover{
+    border: 8px solid gold;
+   
+}
+
+#paper:hover{
+    border: 8px solid gold;
+}
+
+#rock:hover{
+    border:8px solid gold;
+}
+
+
 
 .playerScore{
     color: green;
@@ -83,4 +119,10 @@ body {
     font-size:40px;
     border-radius: 10px;
     background-color: grey;
+
+    margin: 20px;
+}
+
+.restart{
+    padding: 20px;
 }
