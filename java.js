@@ -157,7 +157,8 @@ function playRound(playerPick,computerPick){
 
     /* DOM Manip; Show Player Score */
 
-    const contain = document.querySelector("#scoreContainer")
+
+    const scoreContain = document.querySelector("#scoreContainer")
 
 
 
@@ -165,18 +166,25 @@ function playRound(playerPick,computerPick){
     displayPlayerScore.classList.add(`playerScore`)
     displayPlayerScore.textContent = `Player Score: ${playerScore}`
 
-    while (contain.firstChild) {
-        contain.removeChild(contain.firstChild);
+    while (scoreContain.firstChild) {
+        scoreContain.removeChild(scoreContain.firstChild);
     }
 
-    contain.appendChild(displayPlayerScore)
+    scoreContain.appendChild(displayPlayerScore)
 
     /* DOM Manip; Show Computer Score */
 
     const displayComputerScore = document.createElement('div')
     displayComputerScore.classList.add(`computerScore`)
     displayComputerScore.textContent = `Computer Score: ${computerScore}`
-    contain.appendChild(displayComputerScore)
+    scoreContain.appendChild(displayComputerScore)
+
+    /* DOM Manip; Show Each Pick */
+
+    const showPick = document.createElement('div')
+    showPick.textContent = `Player Picks: ${playerPick} Computer Picks: ${computerPick}`
+    scoreContain.appendChild(showPick)
+
 
     /* DOM Manip; Show Result */
 
